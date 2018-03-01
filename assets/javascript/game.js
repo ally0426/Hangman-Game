@@ -1,38 +1,97 @@
-* {
-    box-sizing: border-box;
-  }
+var wordOptions = ["Apple", "Banana", "Watermelon", "Orange"];
+var selectedWord = "";
+var lettersInWord = [];
+var numBlanks = 0;
+var blanksAndSuccesses = [];
+var wrongLetters = [];
+
+var winCount = 0;
+var lossCount = 0;
+var guessesLeft = 0;
+
+function startGame() {
+  selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+  lettersInWord = selectedWord.split("");
+  numBlanks = lettersInWord.length;
   
-  html {
-    height: 100%
-  }
+  //reset
+  guessesLeft = 9;
+  wrongLetters = [];
+  blanksAndSuccesses = [];
   
-  body {
-    background-image: url("https://screenshots.macupdate.com/JPG/36909/36909_1500034826_scr.jpg");
-    background-size: cover;
-    background-image-opacity: 0.3;
+  for(var i = 0; i < numBlanks; i++) {
+    blanksAndSuccesses[i].push("_");
+    
+    //change HTML to reflect game conditions
+    document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
+    document.getElementById("numGuesses").innerHTML = guessesLeft;
+    document.getElementById("winCounter").innerHTML = winCount;
+    document.getElementById("lossCounter").innerHTML = lossCount;
+    
+    console.log(selectedWord);
+    console.log(lettersInWord);
+    console.log(numBlanks);
+    console.log(blanksAndSuccesses);
+    
+    function checkLetters(letter){
+      
+      var isLetterInWord = false;
+      
+      for(var i = 0; i < numBlanks; i++) {
+        if(selectedWord[i] == letter) {
+          isLetterInWord = true;
+        }
+      }
+     
+      if(isLetterInWord) {
+        for(var i = 0; i < numBlanks; i++) {
+        if(selectedWord[i] == letter) {
+          blanksAndSuccesses[i] = letter;
+         } 
+       }
+     }  else {
+      wrongLetters.push(letter);
+      guessesLeft--;      
+    }
+      
+      console.log(blanksAndSuccesses);
+      
+    }
+    
+    function roundComplete() {
+      console.log("Win Count:" + winCount + " | Loss Count: " + lossCount + " | Guesses Left: " + guessesLeft);
+      
+      document.getElementById("numGuesses").innterHTML = guessesLeft;
+      document.getElementById("wordToGuess").innterHTML = blanksAndSuccesses.join(" ");
+      document.getElementById("wrongGuesses").innterHTML = wrongGuesses.join(" ");
+      
+      if(lettersInWord.toString() == blanksAndSuccesses.toString()) {
+        winCount++;
+        alert("You Won!");
+        document.getElementById("image-div").innerhtml = "<img id='PBJ' src='https://images.unsplash.com/photo-1500259571355-332da5cb07aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=124d6dd6db2065958f8f5c6f414d7940&auto=format&fit=crop&w=634&q=80'/>";
+        
+        document.getElementById("winCounter").innterHTML = winCount;
+        
+        startGame();
+      } else if(guessesLeft == 0){
+        lossCount++;
+        alert("You lost!!");
+        
+        document.getElementById("lossCounter").innterHTML = lossCount;
+        
+        startGame();
+      }
+    }
+    
+    
   }
-  
-  #mainBody {
-    height: 100%;
-    width: 50%;
-    background: #fff;
-    margin: 500px auto;
-    padding: 20px;
-    opacity: 0.7;
-    text-align: center;
-  }
-  
-  table {
-   margin: 0 auto; 
-  }
-  
-  table tr td {
-    border: 2px solid #444;
-  }
-  
-  a {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #000;
-    font-family: Arial, sans-serif;
-  }
+}
+
+//start game
+startGame();
+
+document.onkeypup = function(event) {
+  var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+  checkLetters(letterGuessed);
+  roundComplete();
+}
