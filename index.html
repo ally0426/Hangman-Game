@@ -16,70 +16,52 @@
 
 <body>
 
-<div class="container">
 
-    <h1>Welcome to Hangman Game</h1>
-    <br>
+    <div class="container">
 
-    <table>
-      <tr>    
-        <td>
-
-          <div id="image-div"></div>
-        </td> 
-          
-        <td>
-  
-          <div class="container">
-    
-            <div class="jumbotron">
-              <h1>Hangman Game</h1>
-              <p>Guess when you can!</p>
-            </div>
-    
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Word to Guess</h3>
-              </div>
-              <div class="panel-body">
-                <h2 id="wordToGuess">_ _ _ _ _ _</h2>
-              </div>
-            </div>
-    
-            <div class="panel panel-default">
-              <div class="panel-body">
-                Wrong Guesses: <span id="wrongGuesses"></span>
-              </div>
-            </div>
-    
-            <div class="panel panel-default">
-              <div class="panel-body">
-                Guesses Left: <span id="numGuesses"></span>
-              </div>
-            </div>gi
-            
-            <div class="panel panel-default">
-              <div class="panel-body">
-                Win Counter: <span id="winCounter">0</span>
-              </div>
-            </div>
-    
-            <div class="panel panel-default">
-              <div class="panel-body">
-                Wrong Counter: <span id="lossCounter"></span>
-              </div>
-            </div>
-    
-         </div>
-              
-        </td>
+        <div class="jumbotron">
+          <h1>Hangman Game</h1>
+          <p>Guess when you can!</p>
+        </div>
         
-      </tr>
-    </table>
-    
-  </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Word to Guess</h3>
+          </div>
+          <div class="panel-body">
+            <h2 id="wordToGuess">_ _ _ _ _ _</h2>
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Wrong Guesses: <span id="wrongGuesses">-</span>
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Guesses Left: <span id="numGuesses">-</span>
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Win Counter: <span id="winCounter">0</span>
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Loss Counter: <span id="lossCounter">0</span>
+          </div>
+        </div>
+        
+      </div>
+      
+                
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
 
 </body>
