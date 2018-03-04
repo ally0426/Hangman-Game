@@ -7,10 +7,11 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Hangman Game</title>
 	<!-- styles -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  
   
 </head>
 
@@ -29,31 +30,31 @@
             <h3 class="panel-title">Word to Guess</h3>
           </div>
           <div class="panel-body">
-            <h2 id="wordToGuess">_ _ _ _ _ _</h2>
+            <h2 id="wordToGuess">_ _ _ </h2>
           </div>
         </div>
         
         <div class="panel panel-default">
           <div class="panel-body">
-            Wrong Guesses: <span id="wrongGuesses">-</span>
+            Wrong Letters: <span id="wrongLetters"></span>
           </div>
         </div>
         
         <div class="panel panel-default">
           <div class="panel-body">
-            Guesses Left: <span id="numGuesses">-</span>
+            Guesses Left: <span id="guessesLeft">9</span>
           </div>
         </div>
         
         <div class="panel panel-default">
           <div class="panel-body">
-            Win Counter: <span id="winCounter">0</span>
+            Win Count: <span id="winCount">0</span>
           </div>
         </div>
         
         <div class="panel panel-default">
           <div class="panel-body">
-            Loss Counter: <span id="lossCounter">0</span>
+            Loss Count: <span id="lossCount">0</span>
           </div>
         </div>
         
@@ -61,9 +62,9 @@
       
                 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
-  <script type="text/javascript" href="./assets/javascript/game.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    -->
+  <script src="./assets/javascript/game.js"></script> 
 
 </body>
 </html>
