@@ -25,7 +25,6 @@ function startGame() {
   lettersInWord = selectedWord.split("");
   console.log(lettersInWord);
 
-
   for(var i = 0; i < lettersInWord.length; i++) {
     blanksAndLetters.push("_");
     console.log(blanksAndLetters[i]);
@@ -52,8 +51,7 @@ for(var i = 0; i < lettersInWord.length; i++) {
   if(selectedWord[i] === letter && blanksAndLetters[i] === "_") {
     blanksAndLetters[i] = letter;
     console.log(letter + " is correct!");
-    winCount++;
-   
+    winCount++;   
     isCorrectGuess = true;
   } else if(selectedWord[i] === letter) {
     alert("You already guessed that letter!");
@@ -64,7 +62,7 @@ for(var i = 0; i < lettersInWord.length; i++) {
  if(!isCorrectGuess) {
    console.log(letter + " is not correct!");
    console.log("Show on the wrong letter to the screen please!!");
-  //  document.getElementById("wrongLetters").text = wrongLetters.join(" ");
+   wrongLetters.push(letter);
    guessesLeft--;
    lossCount++;
   }
@@ -117,7 +115,7 @@ startGame();
     
 document.onkeyup = function(event) {
   var pressedLetter = String.fromCharCode(event.keyCode).toLowerCase();
-  console.log("You just pressed " + pressedLetter);
+  console.log("You just pressed " + pressedLetter + " .");
   
   checkLetters(pressedLetter);
 
