@@ -1,4 +1,4 @@
-alert("Enter alphabets to guess the word!");
+
 
 var wordOptions = ["apple", "banana", "watermelon", "orange", "kiwi"];
 var selectedWord = "";
